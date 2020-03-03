@@ -1,29 +1,54 @@
 import React from 'react';
 import logo from './images/read_child_bg.orig.jpg';
+import Counter from './counter'
+
 // import Test1 from './Test1.js'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h4>
-          QuranConnect 
-        </h4>
-        <p> Serving your passion for the Quran</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Login
-        </a>
-      </header>
-      {/* <Test1/> */}
-    </div>
-  );
+class  App extends React.Component {
+
+  state=({
+    page: "home",
+    load: false
+  })
+
+
+
+  handelClick =()=>{
+    console.log("clecked")
+    this.setState({
+      page: "counter"
+    }) 
+    setTimeout(() => this.setState({
+      load: true
+    }) , 2000)
+}
+
+  render(){
+    const {page} = this.state
+            return page === "home" ? (
+              <div className="App">
+                <header className="App-header">
+                  <img src={logo} className="App-logo" alt="logo" />
+                  <h4>
+                    QuranConnect 
+                  </h4>
+                  <p> Serving your passion for the Quran</p>
+                  <a
+                    className="App-link"
+                    href="https://reactjs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Login
+                  </a>
+                  <p onClick={this.handelClick}> Counter </p>
+                </header>
+                {/* <Test1/> */}
+               
+              </div>
+            ) : <Counter load={this.state.load}/>
+        }
 }
 
 export default App;
