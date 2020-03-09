@@ -21,7 +21,7 @@ class  App extends React.Component {
     }) 
     setTimeout(() => this.setState({
       load: true
-    }) , 2000)
+    }) , 5000)
 }
 
   render(){
