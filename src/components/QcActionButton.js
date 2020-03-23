@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import colors from 'config/colors'
+// import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import colors from '../config/colors'
 
 class customButton extends Component {
 	render() {
 		const { text, onPress} = this.props;
 		return (
-		  <TouchableOpacity style={styles.buttonStyle}
+		  <div style={styles.buttonStyle}
 			onPress={() => onPress()}
 		  >
-			 <Text style={styles.textStyle}>{text}</Text>
-		  </TouchableOpacity>
+			 <p style={styles.textStyle}>{text}</p>
+		  </div>
 		);
 	}
 }
@@ -22,7 +22,7 @@ customButton.propTypes = {
 };
 
 
-const styles = StyleSheet.create({
+const styles = {
   buttonStyle: {
     marginRight:10,
     marginLeft:10,
@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
   textStyle: {
     color: colors.primaryDark,
   },
-});
+};
 
 export default customButton;
