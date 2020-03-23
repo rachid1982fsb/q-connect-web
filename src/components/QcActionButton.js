@@ -8,7 +8,7 @@ class customButton extends Component {
 		const { text, onPress} = this.props;
 		return (
 		  <div style={styles.buttonStyle}
-			onPress={() => onPress()}
+			onClick={() => onPress()}
 		  >
 			 <p style={styles.textStyle}>{text}</p>
 		  </div>

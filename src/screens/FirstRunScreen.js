@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import Counter from '../counter'
 import QcActionButton from '../components/QcActionButton'
 
 
@@ -10,13 +10,22 @@ const BG_IMAGE = require('../assets/images/read_child_bg.jpg');
 
 class FirstRunScreen extends React.Component {
 
+    state=({
+        teacherScreen: false
+    })
+
     onTeacherFlow = () => {
-        this.props.navigation.navigate('TeacherScreensNavigator');
+     this.setState({
+         teacherScreen: true
+     })
+        // this.props.navigation.navigate('TeacherScreensNavigator');
     }
 
     render(){
         const { navigation } = this.props;
         return (
+            this.state.teacherScreen ?
+            <Counter/> :
           <div style={styles.container}>
                 <div source={BG_IMAGE} style={styles.bgImage}>
                     <p>بسم الله الرحمان الرحيم</p>
