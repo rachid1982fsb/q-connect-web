@@ -1,5 +1,8 @@
 import React from 'react'
 import LoaderHOC from './HOC/LoaderHOC'
+import noChangeHOC from './HOC/NoChangeHOC'
+import getUserHOC from './HOC/GetUserHOC'
+
 
 class Counter extends React.Component{
 
@@ -26,9 +29,22 @@ handelAdd=()=>{
     render(){
         return (<div>
             <a> Counter Hello: {this.state.counter} </a>
+            <p>{this.props.user}</p>
         <p>{this.props.load ? "yes":"no"} Loading time: {this.state.LoadingTime}</p>
             <button onClick={this.handelAdd}>ADD </button>
         </div>)
     }
 }
+// export default  LoaderHOC(Counter)
+
+// export default  noChangeHOC(Counter)
+
+
+const See = props => (
+    <div class="user-container">
+      <p>My name is {props.user}!</p>
+    </div>
+  );
+  
 export default  LoaderHOC(Counter)
+

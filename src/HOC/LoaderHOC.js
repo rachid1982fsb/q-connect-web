@@ -31,7 +31,13 @@ const LoaderHOC = (WrappedComponent) =>{
         }
 
         render(){
-        return this.props.load ? <WrappedComponent{...this.props} {...this.state}/> : <h2>{((this.endTimer - this.startTimer) / 1000).toFixed(2)}Loading...{this.state.time}</h2>
+        return this.props.load ? 
+                    <WrappedComponent{...this.props} {...this.state}/> 
+                    : <>
+                        <h2>Loading...</h2>
+                        <h2>{((this.endTimer - this.startTimer) / 1000).toFixed(2)}</h2>
+                        <h2>{this.state.time}</h2>
+                      </>
             // return this.props.load ? <WrappedComponent/> : <h2>Loading...</h2> // for this exomple I dont have to send the prop to the WrappedCompeent
         }
     }
